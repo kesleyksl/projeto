@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <header class="bg-dark">
+      <div class="col-100">
+        <h1 class="color-white"><%= title%></h1>
+      </div>
+      </header>
+      <section>
+        <div class="col-30 bg-grey">
+          <form action="/add" method="post">
+          <legend>Incluir novo registro</legend>
+          <input type ="text" name="matricula" placeholder="Matricula">
+          <textarea name="nome" id="" cols="30" rows="2" placeholder="Nome"></textarea>
+          <textarea name="turma" id="" cols="30" rows="2" placeholder="Turma"></textarea>
+          <button type ="submit">Submit</button>
+          </form>
+        </div>
+        <div class="col-70">
+          <table>
+            <tbody>
+              <% for(var i=0; i < tasks.length; i++){ %>
+              <tr>
+                <td>#<%= i+1 %> <strong><%= tasks[i].nome %></strong></td>
+              <!--  <td class ="actions"><a href="/turn/1" class="red">not ok</a></td> -->
+                <td class="highlight">Nome: <%= tasks[i].nome %></td>
+                <td class="highlight">Matricula: <%= tasks[i].matricula %></td>
+                <td class="highlight">Turma: <%= tasks[i].turma %></td>
+
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </body>
+</html>
